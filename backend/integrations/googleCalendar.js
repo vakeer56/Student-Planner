@@ -69,7 +69,7 @@ async function createMultipleEvents(user, scheduleItems) {
       }
 
       const event = {
-        summary: `📚 ${category.name}: ${item.title}`,
+        summary: ` ${category.name}: ${item.title}`,
         description: item.description || `Study session for ${category.name}`,
         start: {
           dateTime: item.startTime.toISOString(),
