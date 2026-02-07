@@ -28,12 +28,14 @@ function getAuthUrl() {
   });
 }
 
+//get tokens for auth
 async function getTokensFromCode(code) {
   const oauth2Client = getOAuth2Client();
   const { tokens } = await oauth2Client.getToken(code);
   return tokens;
 }
 
+// Create authenticated client session
 function getAuthenticatedClient(user) {
   const oauth2Client = getOAuth2Client();
   
@@ -46,6 +48,7 @@ function getAuthenticatedClient(user) {
   return oauth2Client;
 }
 
+//refresh token if expired
 async function refreshAccessToken(user) {
   const oauth2Client = getOAuth2Client();
   
@@ -63,6 +66,7 @@ async function refreshAccessToken(user) {
   return credentials;
 }
 
+// Check if token is expired and refresh if needed
 async function ensureValidToken(user) {
   const now = new Date();
   const expiry = user.integrations.googleCalendar.tokenExpiry;
