@@ -1,0 +1,28 @@
+
+### Get Google Auth URL
+GET http://localhost:3000/auth/google
+
+### Get current schedule
+GET http://localhost:3000/api/schedule/current/USER_ID_HERE
+
+### Generate new schedule
+POST http://localhost:3000/api/schedule/generate
+Content-Type: application/json
+
+{
+  "userId": "69873c256ddf1ce026a10d7c",
+  "preferences": {
+    "workHoursPerDay": 6,
+    "breakDuration": 30,
+    "focusSessions": 4
+  }
+}
+
+### Sync to Google Calendar
+POST http://localhost:3000/api/schedule/sync-google
+Content-Type: application/json
+
+{
+  "userId": "USER_ID_HERE",
+  "scheduleId": "SCHEDULE_ID_HERE"
+}
