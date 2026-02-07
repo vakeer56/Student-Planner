@@ -1,0 +1,19 @@
+
+###
+POST http://localhost:5000/api/study-sessions
+Content-Type: application/json
+
+{
+  "categoryId": "6987bc1b8a52110982640591",
+  "mode": "pomodoro",
+  "plannedDuration": 3600,
+  "actualDuration": 1800,
+  "startTime": "2026-02-07T10:00:00.000Z",
+  "endTime": "2026-02-07T10:30:00.000Z",
+  "date": "2026-02-07",
+  "completed": true,
+  "stopReason": "time_up",
+  "source": "manual",
+  "pomodoroCycle": 1
+}
+
