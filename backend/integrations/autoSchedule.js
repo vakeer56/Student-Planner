@@ -5,7 +5,7 @@ const { createMultipleEvents, deleteMultipleEvents } = require("./googleCalendar
 const { createTasksFromSchedule, getOrCreateTaskList } = require("./googleTasks");
 
 
- //Generate AI-powered study schedule
+// Generate AI-powered study schedule
 
 async function generateSchedule(userId, preferences = {}) {
   try {
@@ -59,9 +59,9 @@ async function generateSchedule(userId, preferences = {}) {
   }
 }
 
-/**
- * Sync schedule to Google Calendar and Tasks
- */
+
+//Sync schedule to Google Calendar and Tasks
+
 async function syncScheduleToGoogle(userId, scheduleId) {
   try {
     const User = require("../models/User");
@@ -113,9 +113,9 @@ async function syncScheduleToGoogle(userId, scheduleId) {
   }
 }
 
-/**
- * Adaptive replanning - triggered when user misses sessions or changes priorities
- */
+
+ // Adaptive replanning - triggered when user misses sessions or changes priorities
+ 
 async function replanSchedule(userId, reason = "User requested") {
   try {
     const User = require("../models/User");
@@ -165,9 +165,9 @@ async function replanSchedule(userId, reason = "User requested") {
   }
 }
 
-/**
- * Analyze study patterns from history
- */
+
+//Analyze study patterns from history
+ 
 function analyzeStudyPatterns(sessions) {
   const categoryPerformance = {};
   const timePreferences = {};
@@ -213,9 +213,8 @@ function analyzeStudyPatterns(sessions) {
   };
 }
 
-/**
- * Generate optimized schedule items
- */
+// Generate optimized schedule items
+
 function generateOptimizedSchedule({ userId, categories, preferences, analysis }) {
   const scheduleItems = [];
   const daysToSchedule = preferences.daysToSchedule || 7;
@@ -267,9 +266,8 @@ function generateOptimizedSchedule({ userId, categories, preferences, analysis }
   return scheduleItems;
 }
 
-/**
- * Find the best hour to study based on past behavior
- */
+// Find the best hour to study based on past behavior
+
 function findBestStudyHour(timePreferences, defaultHour = 9) {
   if (Object.keys(timePreferences).length === 0) {
     return defaultHour;
@@ -289,9 +287,9 @@ function findBestStudyHour(timePreferences, defaultHour = 9) {
   return bestHour;
 }
 
-/**
- * Determine priority based on category performance
- */
+
+// Determine priority based on category performance
+
 function determinePriority(category, analysis) {
   const performance = analysis.categoryPerformance[category.name];
 
