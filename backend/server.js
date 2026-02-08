@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 
 const studySessionRoutes = require("./routes/studySession.routes");
+const googleRoutes = require("./routes/google.routes");
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/study-sessions", studySessionRoutes);
+app.use("/auth", googleRoutes);
 
 app.use((err, req, res, next) => {
     console.error("Global Error Handler:", err);
@@ -24,7 +26,7 @@ app.use((err, req, res, next) => {
 
 
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log("Connected to MongoDB"))
     .catch((err) => console.error("MongoDB connection error:", err));
 
